@@ -130,7 +130,7 @@ def MP3Transcribe(urls):
             except:
                 print('Function failed transcribing MP3 number ' + k + '. Remaining URLs will have -99 for transcript.')
                 for i in range(len(urls)-len(transcriptions)):
-                    transcript.append(-99)
+                    transcriptions.append(-99)
                 df = pd.DataFrame({'url':urls, 'transcription':transcriptions})
                 
                 return df
