@@ -1,4 +1,4 @@
-# Function to download MP3s
+# Helper unction to download MP3s
 def DownloadMP3(url):
     
     
@@ -21,7 +21,9 @@ def DownloadMP3(url):
             f.write(doc.content)
     return True
 
-# Function to segment MP3 files
+# Helper function to segment MP3 files
+# This will temporarily save the files in whatever directory you place this file,
+# but they will be overwritten and can be deleted when the function is done running
 def SegmentMP3(path = 'temp.mp3'):
     
     """
@@ -60,7 +62,7 @@ def SegmentMP3(path = 'temp.mp3'):
 
     return True
 
-# Function to transcribe MP3 segments created in previous function
+# Helper function to transcribe MP3 segments created by SegmentMP3
 def TranscribeMP3():
     
     """
@@ -88,7 +90,7 @@ def TranscribeMP3():
     return transcript
      
     
-# Function to batch the data into 10 groupings
+# Helper function to batch the data into 10 groupings
 def DataBatch(urls):
     total = len(urls)
     ten_p = int(total*.1)
@@ -98,7 +100,11 @@ def DataBatch(urls):
     return batchces
 
 
-# Transcribe a list MP3s linked by their URL
+# MAIN FUNCTION - combines the previous 4 helper functions to batch the data and then dowload
+# and transcribe en mass. Returns a df with url matched to the transcription.
+# ERROR HANDLING - if the function fails mid run, it will return the results that it has
+# to that point and tell you which one it failed on.
+
 def MP3Transcribe(urls):
     import pandas as pd
     
