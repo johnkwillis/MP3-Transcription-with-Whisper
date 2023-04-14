@@ -128,7 +128,7 @@ def MP3Transcribe(urls):
                 print(str(k) + ' out of ' + str(len(urls)) + ' podcasts transcribed in this batch.', end = '\r')
             
             except:
-                print('Function failed transcribing MP3 number ' + k + '. Remaining URLs will have -99 for transcript.')
+                print('Function failed transcribing MP3 number ' + str(k) + '. Remaining URLs will have -99 for transcript.')
                 for i in range(len(urls)-len(transcriptions)):
                     transcriptions.append(-99)
                 df = pd.DataFrame({'url':urls, 'transcription':transcriptions})
