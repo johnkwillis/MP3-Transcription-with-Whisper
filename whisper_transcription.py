@@ -125,7 +125,7 @@ def MP3Transcribe(urls):
                 SegmentMP3()
                 transcriptions.append(TranscribeMP3())
                 k = k+1
-                print(str(k) + ' out of ' + str(len(urls)) + ' podcasts transcribed in this batch.', end = '\r')
+                print(str(k) + ' out of ' + str(len(urls)) + ' podcasts transcribed.', end = '\r')
             
             except:
                 print('Function failed transcribing MP3 number ' + str(k) + '. Remaining URLs will have -99 for transcript.')
